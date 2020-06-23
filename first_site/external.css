@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+    font-size: 120%;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+p{
+    font-size: 130%;
+    background-color: pink;
+    color: white;
+}
+
+ul{
+    text-align: left;
+    font-size: 2em;
+}
+
+#box{
+    background-color: lightgreen;
+    padding: 15px;
+    border: 15px solid pink;
+    margin: 70px;
+    width: 300px;
+}

@@ -2,8 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>My Background</title>
         <style>
+            *{
+                box-sizing: border-box;
+            }
+
             h1{
                 margin-bottom: 15px;
             }
@@ -11,6 +16,11 @@
             p{
                 border: 3px solid black;
                 margin-bottom: 15px;
+                width: 400%;
+                height: 80px;
+                margin-right: auto;
+                margin-left: auto;
+
             }
 
             #p1{
@@ -37,6 +47,44 @@
                     width: 150px;
                     height: 150px;
                 }
+
+                .row{
+                    float: left;
+                    border: 2px black;
+                    margin: 4px;
+                }
+
+                .lg-1{
+                    width: 8.33%;
+                }
+
+                .lg-2{
+                    width: 16.66%;
+                }
+
+                .lg-3{
+                    width: 25%;
+                }
+
+                .lg-4{
+                    width: 33%;
+                }
+
+                .lg-5{
+                    width: 41.66%;
+                }
+
+                .lg-6{
+                    width: 50%;
+                }
+
+                .lg-7{
+                    width: 58.33%;
+                }
+
+                .lg-8{
+                    width: 66.66%;
+                }
             }
 
             /* MEDIUM */
@@ -49,16 +97,69 @@
                     width: 100px;
                     height: 100px;
                 }
+
+                .row{
+                    float: left;
+                    border: 2px black;
+                    margin: 4px;
+                }
+
+                .md-1{
+                    width: 8.33%;
+                }
+
+                .md-2{
+                    width: 16.66%;
+                }
+
+                .md-3{
+                    width: 25%;
+                }
+
+                .md-4{
+                    width: 33%;
+                }
+
+                .md-5{
+                    width: 41.66%;
+                }
+
+                .md-6{
+                    width: 50%;
+                }
+
+                .md-7{
+                    width: 58.33%;
+                }
+
+                .md-8{
+                    width: 66.66%;
+                }
             }
 
         </style>
     </head>
     <body>
         <h1>Media Queries</h1>
+        <h2>We're responsive - we can change columns depending on size</h2>
         <div id="bg">
             Two columns
             <p id="p1">Here's the first paragraph</p>
             <p id="p2">Here's the second paragraph</p>
+        </div>
+        <div class="row">
+            <div class="lg-3 md-3"><p>Item 1</p></div>
+            <div class="lg-3 md-3"><p>Item 2</p></div>
+            <div class="lg-3 md-3"><p>Item 3</p></div>
+            <div class="lg-3 md-3"><p>Item 4</p></div>
+            <div class="lg-3 md-3"><p>Item 5</p></div>
+            <div class="lg-3 md-3"><p>Item 6</p></div>
+            <div class="lg-3 md-3"><p>Item 7</p></div>
+            <div class="lg-3 md-3"><p>Item 8</p></div>
+            <div class="lg-3 md-3"><p>Item 9</p></div>
+            <div class="lg-3 md-3"><p>Item 10</p></div>
+            <div class="lg-3 md-3"><p>Item 11</p></div>
+            <div class="lg-3 md-3"><p>Item 12</p></div>
         </div>
 
         

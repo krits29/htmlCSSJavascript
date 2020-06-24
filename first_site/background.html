@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My Background</title>
+        <style>
+            #bg {
+                width: 1000px;
+                height: 500px;
+                /*background-color: lightblue;
+                background-image: url("laptop.png");
+                background-position: center center;
+                ---just have them all together---
+                */
+                background: lightblue url("laptop.png") center center;
+            }
+
+            div{
+                clear: left;
+            }
+
+            *{
+                box-sizing: border-box;
+            }
+
+            p{
+                width: 50%;
+                height: 50px;
+                border: 5px white;
+                float: left;
+                padding: 10px;
+            }
+
+            #p1{
+                color: white;
+                background-color: black;
+            }
+
+            #p2{
+                background-color: brown;
+            }
+
+            #p3{
+                background-color: burlywood;
+            }
+
+            #p4{
+                background-color: chocolate;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Background Properties</h1>
+        <div id="bg">
+            Two columns
+            <p id="p1">Here's the first paragraph</p>
+            <p id="p2">Here's the second paragraph</p>
+            <p id="p3">Here's the third paragraph</p>
+            <p id="p4">Here's the fourth and final paragraph</p>
+        </div>
+
+        
+    </body>
+</html>

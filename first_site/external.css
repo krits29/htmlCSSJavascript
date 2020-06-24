@@ -24,4 +24,6 @@ ul{
     border: 15px solid pink;
     margin: 70px;
     width: 300px;
+    height: 80px;
+    overflow: auto;
 }

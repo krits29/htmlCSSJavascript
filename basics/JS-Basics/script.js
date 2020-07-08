@@ -37,7 +37,7 @@ if(age == '40') {
 }
 
 console.log("__________________________");
-console.log("quick challenge");
+console.log("CHALLENGE");
 
 var johnAvgScore = (89 + 120 + 103)/3;
 var mikeAvgScore = (116 + 94 + 123)/3;
@@ -53,3 +53,22 @@ if(johnAvgScore > mikeAvgScore && johnAvgScore > maryAvgScore) {
 } else {
     console.log("All teams had equal scores: " + mikeAvgScore);
 }
+
+// console.log("____________________");
+// console.log("FOR LOOPS");
+
+// var example = ["example 1", "example 2", "example 3", "example 4", "example 5", "example 6"];
+
+// for(var i = 0; i < example.length; i++) {
+//     console.log(example[i]);
+// }
+
+// console.log("____________________");
+// console.log("WHILE LOOPS");
+
+// var counter = 0;
+// while(counter < example.length) {
+//     console.log(example[counter]);
+//     counter++;
+// }
+

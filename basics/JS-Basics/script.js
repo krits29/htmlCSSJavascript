@@ -54,21 +54,47 @@ if(johnAvgScore > mikeAvgScore && johnAvgScore > maryAvgScore) {
     console.log("All teams had equal scores: " + mikeAvgScore);
 }
 
-// console.log("____________________");
-// console.log("FOR LOOPS");
+console.log("____________________");
+console.log("FOR LOOPS");
 
-// var example = ["example 1", "example 2", "example 3", "example 4", "example 5", "example 6"];
+var example = ["example 1", 1, "example 2", 2, "example 3", 3, "example 4", 4, "example 5", 5, "example 6", 6];
 
-// for(var i = 0; i < example.length; i++) {
-//     console.log(example[i]);
-// }
+for(var i = 0; i < example.length; i++) {
+    console.log(example[i]);
+}
 
-// console.log("____________________");
-// console.log("WHILE LOOPS");
+console.log("____________________");
+console.log("WHILE LOOPS");
 
-// var counter = 0;
-// while(counter < example.length) {
-//     console.log(example[counter]);
-//     counter++;
-// }
+var counter = 0;
+while(counter < example.length) {
+    console.log(example[counter]);
+    counter++;
+}
 
+console.log("__________________");
+//use continue and break statements
+
+//continue means to skip over
+for(var i = 0; i < example.length; i++) {
+    if(typeof example[i] !== 'number'){
+        continue;
+    }
+    console.log(example[i]);
+}
+
+//break means to completely stop the whole looping
+for(var i = 0; i < example.length; i++) {
+    if(example[i] === "example 4"){
+        break;
+    }
+    console.log(example[i]);
+}
+
+//backward looping
+for(var i = example.length - 1; i >= 0; i--) {
+    if(typeof example[i] !== 'number'){
+        continue;
+    }
+    console.log(example[i]);
+}

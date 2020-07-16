@@ -7,12 +7,13 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 */
 
-var scores, roundScore, activePlayer, dice;
+var scores, roundScore, activePlayer, dice, gameOn;
 
 function init(){
     scores = [0,0];
     roundScore = 0;
     activePlayer = 0; // 0 is first, 1 is second (match with the array)    
+    gameOn = true;
 
     //to access css and html use document.
     //document.querySelector("#current-" + activePlayer).textContent = dice;
@@ -47,29 +48,31 @@ init();
 
 //ROLL
 document.querySelector(".btn-roll").addEventListener("click", function () {
-    dice = Math.floor(Math.random() * 6) + 1;
-    var diceDOM = document.querySelector(".dice");
-    diceDOM.style.display = "block";
-    diceDOM.src = "https://raw.githubusercontent.com/jonasschmedtmann/complete-javascript-course/master/4-DOM-pig-game/starter/dice-" + dice + ".png";
+    if(gameOn){
+        dice = Math.floor(Math.random() * 6) + 1;
+        var diceDOM = document.querySelector(".dice");
+        diceDOM.style.display = "block";
+        diceDOM.src = "https://raw.githubusercontent.com/jonasschmedtmann/complete-javascript-course/master/4-DOM-pig-game/starter/dice-" + dice + ".png";
 
-    if(dice !== 1) {
-        roundScore += dice;
-        document.querySelector("#current-" + activePlayer).textContent = roundScore;
-    } else {
-        roundScore = 0;
-        document.querySelector("#current-" + activePlayer).textContent = roundScore;
-        activePlayer === 1 ? activePlayer = 0 : activePlayer = 1;
+        if(dice !== 1) {
+            roundScore += dice;
+            document.querySelector("#current-" + activePlayer).textContent = roundScore;
+        } else {
+            roundScore = 0;
+            document.querySelector("#current-" + activePlayer).textContent = roundScore;
+            activePlayer === 1 ? activePlayer = 0 : activePlayer = 1;
 
-        //switching player
-        // document.querySelector(".player-0-panel").classList.remove("active");
-        // document.querySelector(".player-1-panel").classList.add("active");
+            //switching player
+            // document.querySelector(".player-0-panel").classList.remove("active");
+            // document.querySelector(".player-1-panel").classList.add("active");
 
-        //toggle
-        document.querySelector(".player-0-panel").classList.toggle("active");
-        document.querySelector(".player-1-panel").classList.toggle("active");
+            //toggle
+            document.querySelector(".player-0-panel").classList.toggle("active");
+            document.querySelector(".player-1-panel").classList.toggle("active");
 
-        document.querySelector(".dice").style.display = "block";
-        
+            document.querySelector(".dice").style.display = "block";
+            
+        }
     }
 });
 
@@ -87,6 +90,7 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
         document.querySelector("#name-" + activePlayer).textContent = "WINNER";
         document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
         document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+        gameOn = false;
     } else {
         activePlayer === 1 ? activePlayer = 0 : activePlayer = 1;
 

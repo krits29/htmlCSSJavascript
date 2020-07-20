@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript</h1>
+    <ol style="font-size: 25px;">
+        <li class = "first"></li>
+        <li class = "second"></li>
+        <li class = "third"></li>
+    </ol>
+    <p class = "logging"></p>
+    <script>
+        const callOne = () => { 
+            document.querySelector(".first").textContent = "Numero Uno";
+            callTwo();
+            document.querySelector(".third").textContent = "Numero Tres";
+        }
+
+        const callTwo = () => {
+            setTimeout(() => {
+                document.querySelector(".second").textContent = "Numero Dos";
+            }, 2500);
+        }
+
+        callOne();
+
+
+        function getRecipe() {
+            setTimeout(() => {
+                const recipeID = [111, 222, 333, 444];
+                document.querySelector(".logging").textContent = recipeID;
+
+                setTimeout((id) => {
+                    const recipe = {
+                        title: "White sauce pasta",
+                        publisher: "Mom"
+                    };
+                    document.querySelector(".logging").textContent = id + ": " + recipe.title;
+
+                    setTimeout((publisher) => {
+                        const recipe2 = {
+                            title: "Maggie",
+                            publisher: "Me"
+                        }
+                        document.querySelector(".logging").textContent = recipe2.title + " by " + recipe2.publisher;
+                    }, 1500, recipe.publisher);
+                    
+                }, 1000, recipeID[2]);
+
+            }, 1500);
+        }
+
+        getRecipe();
+        
+    </script>
+</body>
+</html>

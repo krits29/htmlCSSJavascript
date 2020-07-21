@@ -93,20 +93,45 @@
         };
 
         //add an event handler when the promise is fulfilled
-        getIDs
-        .then((IDs) => {
+        // getIDs
+        // .then((IDs) => {
+        //     document.querySelector(".logging").textContent = IDs;
+        //     return getRecipe(IDs[2]);
+        // })
+        // .then((recipe) => {
+        //     document.querySelector(".logging").textContent = recipe;
+        //     return getRelated(recipe.publisher);
+        // })
+        // .then((recipe) => {
+        //     document.querySelector(".logging").textContent = recipe;
+        // })
+        // .catch(error => {
+        //     document.querySelector(".logging").textContent = "Error" + error;
+        // });
+
+
+        //USING ASYNC AWAIT to replace above ^
+        async function getRecipesA() {
+            //to consume the promise, use await, then assign to a variable
+            //await will stop the code from executing until the promise is fulfilled
+            const IDs = await getIDs;
             document.querySelector(".logging").textContent = IDs;
-            return getRecipe(IDs[2]);
-        })
-        .then((recipe) => {
+
+            const recipe = await getRecipe(IDs[2]);
             document.querySelector(".logging").textContent = recipe;
-            return getRelated(recipe.publisher);
-        })
-        .then((recipe) => {
-            document.querySelector(".logging").textContent = recipe;
-        })
-        .catch(error => {
-            document.querySelector(".logging").textContent = "Error" + error;
+
+            const related = await getRelated(recipe.publisher);
+            document.querySelector(".logging").textContent = related;
+            
+            //REMEMBER that you can only use await with an async function
+
+            return recipe; 
+        }
+
+        //the async funciton always returns a promise
+        //so we can use the .then to consume the promise that was returned
+        getRecipesA().then((result) => {
+            document.querySelector(".logging").textContent = (result + " is the best");
         });
         
     </script>

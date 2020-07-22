@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+</head>
+<body>
+    <h1>Asynchronous JavaScript with AJAX and APIs</h1>
+    <ol style="font-size: 25px;">
+        <li class = "first"></li>
+        <li class = "second"></li>
+        <li class = "third"></li>
+    </ol>
+    <p class = "logging"></p>
+    <script>
+        const callOne = () => { 
+            document.querySelector(".first").textContent = "Numero Uno";
+            callTwo();
+            document.querySelector(".third").textContent = "Numero Tres";
+        }
+
+        const callTwo = () => {
+            setTimeout(() => {
+                document.querySelector(".second").textContent = "Numero Dos";
+            }, 2500);
+        }
+
+        callOne();
+
+        //USING WEATHER API
+
+        function getWeather(woeid) {
+            fetch("https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/" + woeid + "/")
+            .then((result) => {
+                console.log(result);
+                return result.json(); //returns a promise, need to handle again
+            })
+            .then((data) => {
+                //console.log(data);
+                const today = data.consolidated_weather[0];
+                console.log("Temperatures in " + data.title + " are between " + today.min_temp + " C and " + today.max_temp);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+            //in order to handle the result (promise) of the fetch function, 
+            //we can return the data with then and catch (for errors)
+        }
+
+        getWeather(2487956);
+        getWeather(44418);
+
+        async function getWeatherA(woeid){
+            const result = await fetch("https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/" + woeid + "/");
+            const data =  await result.json();
+            const tomorrow = data.consolidated_weather[1];
+            console.log("Temperatures in " + data.title + " are between " + tomorrow.min_temp + " C and " + tomorrow.max_temp);
+            return data;
+        }
+
+        getWeatherA(2487956);
+        getWeatherA(44418);
+        
+    </script>
+</body>
+</html>
